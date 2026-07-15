@@ -1,0 +1,28 @@
+:root {
+  --color-black: #010101;
+  --color-brown: #4d2911;
+  --color-green: #46ce3a;
+  --color-orange: #ff8600;
+  --color-orange-light: #ffa844;
+  --color-purple: #cc5cb0;
+  --color-white: #ffffff;
+  --color-yellow: #dcdf2b;
+  --color-yellow-light: #dcdf5a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  --s: 60px;
+  --c1: var(--color-orange);
+  --c2: var(--color-brown);
+  --p: calc(var(--s)/2)/calc(2 * var(--s)) var(--s);
+
+  background:
+    radial-gradient(var(--s), var(--c1) 49%, #0000 50%) var(--s) var(--p),
+    radial-gradient(var(--s), var(--c2) 49%, #0000 50%) 0 var(--p),
+    linear-gradient(var(--c1) 50%, var(--c2) 0) 0 0/1% calc(2 * var(--s));
+  font-family: sans-serif;
+}
