@@ -10,11 +10,15 @@ export class RacerCard extends LitElement {
   render() {
     return html`
       <div
-        class="racer-card ${this.racer?.border1
-          ? `racer-card--border-1-${this.racer.border1}`
-          : ""} ${this.racer?.border2
-          ? `racer-card--border-2-${this.racer.border2}`
-          : ""}"
+        class="racer-card ${
+          this.racer?.border1
+            ? `racer-card--border-1-${this.racer.border1}`
+            : ""
+        } ${
+          this.racer?.border2
+            ? `racer-card--border-2-${this.racer.border2}`
+            : ""
+        }"
       >
         <div class="racer-card__top">
           ${when(
