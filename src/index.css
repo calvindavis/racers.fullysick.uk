@@ -17,7 +17,7 @@
 html {
   --s: 60px;
   --c1: var(--color-orange);
-  --c2: var(--color-brown);
+  --c2: var(--color-yellow);
   --p: calc(var(--s)/2)/calc(2 * var(--s)) var(--s);
 
   background:
