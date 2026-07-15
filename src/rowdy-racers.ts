@@ -6,7 +6,7 @@ import "./racer-card";
 import "./racer-grid";
 import "./racer-page";
 
-import { LitElement, html } from "lit";
+import { LitElement, css, html } from "lit";
 import { customElement } from "lit/decorators.js";
 import { Router } from "@lit-labs/router";
 
@@ -26,15 +26,27 @@ export class RowdyRacers extends LitElement {
     const title = import.meta.env.VITE_TITLE;
 
     return html` <div class="rowdy-racers">
-      <h1>${title}</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/create">Create</a>
-      </nav>
-      <auth-nav></auth-nav>
+      <header>
+        <h1>${title}</h1>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/create">Create</a>
+        </nav>
+        <auth-nav></auth-nav>
+      </header>
       ${this._router.outlet()}
     </div>`;
   }
+
+  static styles = css`
+    header {
+      align-items: center;
+      background-color: var(--color-white);
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+  `;
 }
 
 declare global {
