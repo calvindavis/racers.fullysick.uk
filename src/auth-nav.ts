@@ -12,11 +12,19 @@ export class AuthNav extends LitElement {
   });
 
   private async _handleLogInClick() {
-    await logIn();
+    const email = prompt("Enter your email address.");
+
+    if (email) {
+      await logIn(email);
+      alert("A magic link will be sent to your email address.");
+    } else {
+      alert("Couldn't send email - try again.");
+    }
   }
 
   private async _handleLogOutClick() {
     await logOut();
+    location.reload();
   }
 
   render() {

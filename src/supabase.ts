@@ -36,11 +36,11 @@ export async function getUser(): Promise<User | null> {
   return response.data.user;
 }
 
-export async function logIn(): Promise<User | null> {
+export async function logIn(email: string): Promise<User | null> {
   const response = await client.auth.signInWithOtp({
-    email: "calvin.davis@yoyodesign.com",
+    email,
     options: {
-      emailRedirectTo: "http://localhost:5173/",
+      emailRedirectTo: window.location.origin,
     },
   });
   return response.data.user;
