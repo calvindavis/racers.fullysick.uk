@@ -33,7 +33,6 @@ export async function saveRacer(racer: Racer): Promise<void> {
 
 export async function getUser(): Promise<User | null> {
   const response = await client.auth.getUser();
-  console.log(response);
   return response.data.user;
 }
 
