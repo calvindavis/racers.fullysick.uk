@@ -1,8 +1,9 @@
+import { cloudflare } from "@cloudflare/vite-plugin";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
-import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
-  plugins: [],
+  plugins: [cloudflare()],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

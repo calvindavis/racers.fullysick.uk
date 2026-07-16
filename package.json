@@ -1,13 +1,14 @@
 {
-  "name": "rowdy-racers",
+  "name": "racers.fullysick.uk",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "format": "prettier -w ."
+    "preview": "npm run build && wrangler dev",
+    "format": "prettier -w .",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@lit-labs/router": "^0.1.4",
@@ -16,9 +17,11 @@
     "lit": "^3.3.3"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.45.0",
     "@types/node": "^26.1.1",
     "prettier": "3.9.5",
     "typescript": "~6.0.2",
-    "vite": "^8.1.1"
+    "vite": "^8.1.1",
+    "wrangler": "^4.111.0"
   }
 }
