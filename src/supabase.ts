@@ -22,13 +22,16 @@ export async function getRacer(racerId: string): Promise<Racer | null> {
 }
 
 export async function saveRacer(racer: Racer): Promise<void> {
+  const user = await getUser();
+
   await client.from("racers").insert({
-    name: racer.name,
-    image: racer.image,
-    ruleTitle: racer.ruleTitle,
-    ruleDescription: racer.ruleDescription,
     border1: racer.border1,
     border2: racer.border2,
+    image: racer.image,
+    name: racer.name,
+    ruleDescription: racer.ruleDescription,
+    ruleTitle: racer.ruleTitle,
+    user_id: user?.id,
   });
 }
 
@@ -44,6 +47,7 @@ export async function logIn(email: string): Promise<User | null> {
       emailRedirectTo: window.location.origin,
     },
   });
+
   return response.data.user;
 }
 

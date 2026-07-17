@@ -4,6 +4,7 @@ import "@/color-picker";
 import "@/racer-card";
 import "@/racer-grid";
 import "@/pages/create-page";
+import "@/pages/error-page";
 import "@/pages/home-page";
 import "@/pages/login-page";
 import "@/pages/profile-page";
@@ -36,6 +37,10 @@ export class AppRoot extends LitElement {
       path: "/racer/:racerId",
       render: ({ racerId }) =>
         html`<racer-page .racerId=${racerId}></racer-page>`,
+    },
+    {
+      path: "/*",
+      render: () => html`<error-page></error-page>`,
     },
   ]);
 

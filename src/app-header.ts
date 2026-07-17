@@ -10,8 +10,7 @@ export class AppHeader extends LitElement {
       <nav>
         <a href="/">Home</a>
         <a href="/create">Create</a>
-        <a href="/profile">Profile</a>
-        <a href="/login">Login</a>
+        <auth-nav></auth-nav>
       </nav>
     `;
   }
