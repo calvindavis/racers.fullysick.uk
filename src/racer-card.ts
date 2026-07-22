@@ -6,8 +6,18 @@ import type { Racer } from "@/types/Racer";
 
 @customElement("racer-card")
 export class RacerCard extends LitElement {
-  @property({ type: Object })
-  racer: Racer = {};
+  @property({ type: Object }) racer: Racer = {};
+
+  @property({ type: String }) border1: string | undefined;
+  @property({ type: String }) border2: string | undefined;
+  @property({ type: String }) credit: string | undefined;
+  @property({ type: String }) creditUrl: string | undefined;
+  @property({ type: String }) image: string | undefined;
+  @property({ type: String }) imageCredit: string | undefined;
+  @property({ type: String }) imageCreditUrl: string | undefined;
+  @property({ type: String }) name: string | undefined;
+  @property({ type: String }) ruleDescription: string | undefined;
+  @property({ type: String }) ruleTitle: string | undefined;
 
   link(text: string | undefined, url: string | undefined) {
     return when(
@@ -18,29 +28,25 @@ export class RacerCard extends LitElement {
   }
 
   willUpdate() {
-    this.style.setProperty(
-      "--border-color-1",
-      `var(--color-${this.racer?.border1})`,
-    );
+    const border1 = this.border1 || this.racer.border1 || "purple";
+    const border2 = this.border2 || this.racer.border2 || "orange";
 
-    this.style.setProperty(
-      "--border-color-2",
-      `var(--color-${this.racer?.border2})`,
-    );
+    this.style.setProperty("--border-color-1", `var(--color-${border1})`);
+
+    this.style.setProperty("--border-color-2", `var(--color-${border2})`);
   }
 
   render() {
-    const {
-      credit,
-      creditUrl,
-      id,
-      image,
-      imageCredit,
-      imageCreditUrl,
-      name,
-      ruleDescription,
-      ruleTitle,
-    } = this.racer;
+    const credit = this.credit || this.racer.credit;
+    const creditUrl = this.creditUrl || this.racer.creditUrl;
+    const image = this.image || this.racer.image;
+    const imageCredit = this.imageCredit || this.racer.imageCredit;
+    const imageCreditUrl = this.imageCreditUrl || this.racer.imageCreditUrl;
+    const name = this.name || this.racer.name;
+    const ruleDescription = this.ruleDescription || this.racer.ruleDescription;
+    const ruleTitle = this.ruleTitle || this.racer.ruleTitle;
+
+    const id = this.racer.id;
     const url = id ? `/racer/${id}` : undefined;
     const imageUrl = image || "/racer-default-image.jpg";
 
