@@ -121,7 +121,7 @@ export class RacerCard extends LitElement {
       position: relative;
       text-decoration: none;
       text-transform: uppercase;
-      word-break: break-all;
+      word-break: break-word;
       z-index: 10;
 
       a {
